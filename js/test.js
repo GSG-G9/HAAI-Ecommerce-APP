@@ -21,3 +21,17 @@ describe("Test addProduct Function", () => {
 		expect(actual).toEqual(expected);
 	});
 });
+
+
+const { removeProduct } = require("./logic");
+
+describe("Test removeProduct Function", () => {
+	test("should add input item - first parameter- to array -second parameter", () => {
+		const products = [{ id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }]
+		const valueToRemove = { id: 4 }
+		const prev = removeProduct(valueToRemove, products);
+		const next = products.filter((item) => item !== valueToRemove);
+		expect(prev).toEqual(next);
+	});
+
+});
