@@ -1,6 +1,149 @@
-body{
-  display: flex;
+html{
+  font-family: 'Rokkitt', serif;
+  margin: 0;
+  padding: 0;  
 }
-img{
-  width: 100px;
+
+
+/* start of navbar style */
+.header-nav{
+  background-color: rgb(128, 128, 128,0.50);
+  height: 10%;
+  display:flex;
+  color: white;
+  position: fixed;
+  top:0;
+  left:0;
+  width: 100%;
+  z-index: 1; 
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.header-logo-text{
+  margin: 0;
+  padding: auto;
+  display: inline-block;
+  font-size: 40px;
+  font-weight: 600;
+  font-family: 'Grenze Gotisch', cursive;
+  text-transform: uppercase;
+  cursor: pointer;
+  text-decoration: none;
+  color:white;
+}
+
+
+.header-logo-text span{
+  color:  rgb(219, 41, 74)
+}
+
+
+.navbar-ul-none{
+  display: flex;
+  list-style-type: none;
+}
+
+.header-navbar-li{
+  margin-right: 45px;
+  text-align: center;
+}
+
+.header-navbar-a{
+  text-decoration: none;
+  color: white;
+  font-size: 30px;
+}
+
+.header-main{
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items:center;
+  width: 80%;
+}
+
+.header-main::before{
+  content:'';
+  background: url('../img/images.jpg');
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top:0;
+  left:0;
+  opacity: 0.50;
+  z-index: -1;
+}
+
+.header-h1{
+  margin-top: 20vh;
+  font-size: 50px;
+  color:#db294a;
+  text-align: center;
+}
+
+.header-buttons-div{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 50%;
+  margin-top: 30vh;
+}
+
+.header-seller-btn,.header-buyer-btn {
+  width: 10vw;
+  position: relative;
+  height: fit-content;
+  vertical-align: middle;
+  box-sizing: border-box;
+  font-weight: 400;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  user-select: none;
+  border: 1px solid transparent;
+  font-size: 3rem;
+  line-height: 2;
+  border-radius: .25rem;
+  color: #28a745;
+  background-color: rgb(128, 128, 128,0.3);
+  background-image: none;
+  border-color: #28a745;
+  cursor: pointer;
+  transition: color .15s ease-in-out background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+  text-decoration: none;
+}
+
+
+.header-buyer-btn:hover,
+.header-seller-btn:hover{
+  color: #fff;
+  background-color: #28a745;
+  border-color: #28a745;
+}
+
+
+
+
+
+@media (min-width:900px) and (max-width:1200px){}
+@media (min-width:600px) and (max-width:900px){}
+@media (max-width:600px){
+
+  .header-buttons-div{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items:center;
+    height: 30vh;
+  }
+  .header-seller-btn,.header-buyer-btn {
+    width: fit-content;
+  }
+
+  .navbar-ul-none{
+    display: none;
+  }
 }
