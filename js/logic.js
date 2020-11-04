@@ -7,7 +7,7 @@ function addProduct(product, products) {
 function totalPrice(cartProducts){
 	return cartProducts.map(item => item.price).reduce((acc, val)=> acc + val , 0)
 }
-//buyer - delete product /////////////iman
+//buyer - delete product
 function deleteProduct(cartProducts, choosenProduct){
 	return cartProducts.filter(item => item.id !== choosenProduct.id);
 

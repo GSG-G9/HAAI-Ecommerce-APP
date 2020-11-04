@@ -150,6 +150,7 @@ const createComponatDiv = (product) => {
 
 	});
 	productContainer.appendChild(productDiv);
+	productDiv.classList.add("single-product-div")
 
 }
 getProducts().forEach(el => createComponatDiv(el));
@@ -161,11 +162,14 @@ const createCartProductDiv = (cartProduct) => {
 	const productInfo = document.createElement("div");
 	const productImage = document.createElement("img");
 	const productName = document.createElement("h2");
-	const productPrice = document.createElement("p")
+	const productPrice = document.createElement("p");
+
+	
 	productDiv.append(productImageDiv , productInfo);
 	productImageDiv.appendChild(productImage);
 	productInfo.append(productName, productPrice);
 	productDiv.appendChild(cartRemoveButton);
+	productImage.classList.add("product-image")
 
 	productName.innerText = cartProduct.name;
 	productPrice.innerText = cartProduct.price;
@@ -186,6 +190,7 @@ const createCartProductDiv = (cartProduct) => {
 
 	});
 	cartSection.appendChild(productDiv);
+	productDiv.classList.add("cart-product-div")
 
 
 
