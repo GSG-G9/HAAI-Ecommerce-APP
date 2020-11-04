@@ -1,4 +1,4 @@
-const { addProduct, totalPrice, deleteProduct, filterProducts, removeProduct } = require("./logic"); 
+const { addProduct, removeProduct, sellerFilterPrice, sellerFilterCategory, totalPrice, deleteProduct, editProduct ,addProductToCart  ,filterProducts } = require("./logic"); 
 
 
 test("check jest is working", () => {
@@ -22,6 +22,68 @@ describe("Test addProduct Function", () => {
 		expect(actual).toEqual(expected);
 	});
 });
+
+
+//  Seller Remove Product
+describe("Test Remove Function", () => {
+	test("should add input item - first parameter- to array -second parameter", () => {
+		const products = [{ id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }]
+		const valueToRemove = { id: 4 }
+		const actual = removeProduct(valueToRemove, products);
+		const expected = [{ id: 1 }, { id: 2 }, { id: 3 }];
+		expect(actual).toEqual(expected);
+	});
+
+});
+
+
+// Seller Price Filter Products
+describe("Test filter Price Product Function", () => {
+	test("should Fitter itmes by price", () => {
+		const products = [{ id: 1 , price :25 }, { id: 2  , price :55 }, { id: 3 , price :105 }];
+		const item = { price : 60}
+		const actual = sellerFilterPrice(item, products);
+		const expected = [{id: 1 , price :25 }, { id: 2  , price :55 }]
+		expect(actual).toEqual(expected);
+	});
+
+});
+
+// Seller category Filter Products
+describe("Test filter category Product Function", () => {
+	test("should Fitter itmes by category", () => {
+		const products = [{ id: 1 , price :25 , catogrey :"men"}, { id: 2  , price :55, catogrey : "women" }, { id: 3 , price :105 ,catogrey : "children" }];
+		const item = { catogrey :"men"}
+		const actual = sellerFilterCategory(item, products);
+		const expected = [{ id: 1 , price :25 ,catogrey : "men"}]
+		expect(actual).toEqual(expected);
+	});
+
+});
+
+// Seller Edit Product Products
+describe("Test Edit Product Function", () => {
+	test("should Edit itmes ", () => {
+		const products = [{ id: 1 , price :25 , catogrey :"men"}, { id: 2  , price :55, catogrey : "women" }, { id: 3 , price :105 ,catogrey : "children" }];
+		const item = { id: 1 , catogrey :"women"}
+		const actual = editProduct(item, products);
+		const expected = [{ id: 1 , price :25 , catogrey :"women"}, { id: 2  , price :55, catogrey : "women" }, { id: 3 , price :105 ,catogrey : "children" }]
+		expect(actual).toEqual(expected);
+	});
+
+});
+
+// Buyer Add Product to Cart
+describe("Test addProduct to cart Function", () => {
+	test("should add input item to cart", () => {
+		const products = [{ id: 1 }, { id: 2 }, { id: 3 }];
+		const Product = { id: 4 };
+		const actual = addProductToCart(Product, products);
+		const expected = [...products, Product];
+		expect(actual).toEqual(expected);
+	});
+});
+
 // start of totalPrice function tests
 describe("Test totalPrice Function", () => {
 	test("it should sum all input prices", () => {
@@ -195,14 +257,3 @@ describe("Test deleteProduct Function", () => {
 
 });
 // end of delete products tests
-
-describe("Test removeProduct Function", () => {
-	test("should add input item - first parameter- to array -second parameter", () => {
-		const products = [{ id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }]
-		const valueToRemove = { id: 4 }
-		const prev = removeProduct(valueToRemove, products);
-		const next = products.filter((item) => item !== valueToRemove);
-		expect(prev).toEqual(next);
-	});
-
-});
