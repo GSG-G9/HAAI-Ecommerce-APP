@@ -1,4 +1,5 @@
-const products = [
+
+const productsData = [
 	{
 		name: "balls",
 		id: "10001",
@@ -97,3 +98,128 @@ const products = [
 		catogrey: "sports",
 	},
 ];
+// products  local storage functions
+const getProducts = () => JSON.parse(localStorage.getItem("products"));
+const setProducts = (products) => localStorage.setItem("products" , JSON.stringify(products));
+const removeProducts = () => localStorage.removeItem("products");
+// cart local storage functions 
+const getCartProducts = () => JSON.parse(localStorage.getItem("cartProducts"));
+const setCartProducts = (cartProducts) => localStorage.setItem("cartProducts" , JSON.stringify(cartProducts));
+const removeCartProduct = () => localStorage.removeItem("cartProducts");
+
+
+
+if(!localStorage.getItem("products")){
+	localStorage.setItem("products" , JSON.stringify(productsData))
+}
+//make empty array in local storage
+if(!localStorage.getItem("cartProducts")){
+	localStorage.setItem("cartProducts" , JSON.stringify([]))
+}
+const productContainer = document.getElementById("products-container");
+const cartSection = document.getElementById("cart-section");
+const totalPriceParagraph= document.getElementById("total-price")
+
+
+const createComponatDiv = (product) => {
+
+	const productDiv = document.createElement("div");
+	const productBuyButton = document.createElement("button")
+	const productImageDiv = document.createElement("div");
+	const productInfo = document.createElement("div");
+	const productImage = document.createElement("img");
+	const productName = document.createElement("h2");
+	const productPrice = document.createElement("p")
+	productDiv.append(productImageDiv , productInfo);
+	productImageDiv.appendChild(productImage);
+	productInfo.append(productName, productPrice);
+	productDiv.appendChild(productBuyButton);
+
+	productName.innerText = product.name;
+	productPrice.innerText = product.price;
+	productImage.src = product.imgSrc;
+	// productDiv.id = product.id;
+	productBuyButton.innerText = "Buy";
+	//when click on button  add product to cart  local storage
+	productBuyButton.addEventListener("click", () => {
+		
+		setCartProducts(addProduct(product, getCartProducts()));
+		getCartProducts().forEach(el => createCartProductDiv(el));
+		totalPriceParagraph.innerText =  totalPrice(getCartProducts());
+
+
+	});
+	productContainer.appendChild(productDiv);
+
+}
+getProducts().forEach(el => createComponatDiv(el));
+const createCartProductDiv = (cartProduct) => {
+
+	const productDiv = document.createElement("div");
+	const cartRemoveButton = document.createElement("button")
+	const productImageDiv = document.createElement("div");
+	const productInfo = document.createElement("div");
+	const productImage = document.createElement("img");
+	const productName = document.createElement("h2");
+	const productPrice = document.createElement("p")
+	productDiv.append(productImageDiv , productInfo);
+	productImageDiv.appendChild(productImage);
+	productInfo.append(productName, productPrice);
+	productDiv.appendChild(cartRemoveButton);
+
+	productName.innerText = cartProduct.name;
+	productPrice.innerText = cartProduct.price;
+	productImage.src = cartProduct.imgSrc;
+	// productDiv.id = product.id;
+	cartRemoveButton.innerText = "remove";
+	//when click on button  add product to local storage
+	cartRemoveButton.addEventListener("click", () => {
+		// removeCartProduct();
+	//remove and update to local storage
+		setCartProducts(deleteProduct(getCartProducts(), cartProduct));
+		[...cartSection.children].forEach(el => el.remove())
+		getCartProducts().forEach(el => createCartProductDiv(el));
+		totalPriceParagraph.innerText =  totalPrice(getCartProducts());
+
+
+
+
+	});
+	cartSection.appendChild(productDiv);
+
+
+
+}
+
+// {
+// 	name: "footballs",
+// 	id: "10002",
+// 	price: 30.47,
+// 	imgSrc: "/img/sports/footballs.jpg",
+// 	owner: "hassan",
+// 	catogrey: "sports",
+// }
+//////////////////////////////////////////
+/* <div class="product" id="10002"> 
+<div id="product-image">  
+  <img src="/img/sports/footballs.jpg">
+</div>
+<div class="product-info" >
+ <h2></h2> // name
+ <p>price: </p>
+
+
+
+</div>
+  
+<!-- {
+name: "footballs",//
+id: "10002",//
+price: 30.47,//
+imgSrc: "/img/sports/footballs.jpg",
+catogrey: "sports",
+} -->
+
+</div> */
+
+

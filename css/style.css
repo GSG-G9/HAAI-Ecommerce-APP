@@ -123,6 +123,13 @@ html{
   background-color: #28a745;
   border-color: #28a745;
 }
+img{
+  width: 50px;
+
+}
+#total-price{
+  font-size: 50px;
+}
 
 
 
