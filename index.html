@@ -37,8 +37,42 @@
     </main>
   </header>
 
-  <div id="container"></div>
-  <div id="my-cart"></div>
+  <div id="buyer-container">
+    <!-- start of buyer proucts section -->
+    <section id="buyer-products-section">
+      <div id="search-and-filters-and-toggle-container">
+        <button id="buyer-toggle-button">toggle</button>
+        <input id="search-buyerproducts-input" type="search" name="search-input">
+        <label for="prices-dropdown" id="prices-dropdown-label">filter by prices</label>
+        <select name="prices-dropdown" id="prices-dropdown">
+          <option value="20$ - 50$">20$ - 50$</option>
+          <option value="50$ - 100$">50$ - 100$</option>
+          <option value="more than 100$">more than 100$</option>
+        </select>
+        <label for="categories-drop-down-label">filter by categories</label>
+        <select name="categories-dropdown" id="categories-dropdown">
+          <option value="children">children</option>
+          <option value="womens">womens</option>
+          <option value="men">men</option>
+        </select>
+      </div>
+      <section id="products-container">
+        <!-- add me by dom -->
+      </section>
+    </section>
+    <!-- end of buyer proucts section -->
+    <!-- start of cart secrtion -->
+    <section id="cart-section">
+      <p>total</p>
+      <span id="buyer-total"></span>
+      <!-- add items here by dom later -->
+
+    </section>
+    <!-- end of cart secrtion -->
+
+
+
+  </div>
 
   <script src="./js/logic.js"></script>
   <script src="./js/dom.js"></script>
