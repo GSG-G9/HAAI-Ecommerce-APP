@@ -14,5 +14,13 @@ function deleteProduct(cartProducts, choosenProduct){
 
 
 
+
+// Seller - Remove a product
+
+function removeProduct(valueToRemove, products){
+	return products.filter((item) => item !== valueToRemove)
+}
+
 //Export functions
-module.exports = { addProduct, totalPrice, deleteProduct};
+module.exports = { addProduct, totalPrice, deleteProduct, removeProduct};
+

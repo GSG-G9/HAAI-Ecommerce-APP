@@ -1,5 +1,4 @@
-const { addProduct, totalPrice, deleteProduct, filterProducts } = require("./logic"); //////////////////
-
+const { addProduct, totalPrice, deleteProduct, filterProducts, removeProduct } = require("./logic"); 
 
 
 test("check jest is working", () => {
@@ -23,7 +22,6 @@ describe("Test addProduct Function", () => {
 		expect(actual).toEqual(expected);
 	});
 });
-///////////////////////me
 // start of totalPrice function tests
 describe("Test totalPrice Function", () => {
 	test("it should sum all input prices", () => {
@@ -198,6 +196,13 @@ describe("Test deleteProduct Function", () => {
 });
 // end of delete products tests
 
+describe("Test removeProduct Function", () => {
+	test("should add input item - first parameter- to array -second parameter", () => {
+		const products = [{ id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }]
+		const valueToRemove = { id: 4 }
+		const prev = removeProduct(valueToRemove, products);
+		const next = products.filter((item) => item !== valueToRemove);
+		expect(prev).toEqual(next);
+	});
 
-
-
+});
