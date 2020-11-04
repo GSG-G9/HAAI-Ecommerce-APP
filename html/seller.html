@@ -30,8 +30,41 @@
     </nav>
   </header>
 
+  <div id="seller-div">
+      <!--  seller products section -->
+    <section id="seller-products-section">
+      <div id="seller-header-div">
+        <button id="Seller-toggle-button">toggle</button>
+        <input id="seller-search-input" type="search" name="seller-search-input">
+        <label for="seller-price-dropdown"id="seller-price-dropdown-label">filter by prices</label>
+        <select name="seller-price-dropdown" id="seller-price-dropdown">
+          <option value="20$ - 50$">20$ - 50$</option>
+          <option value="50$ - 100$">50$ - 100$</option>
+          <option value="more than 100$">more than 100$</option>
+        </select>
+        <label for="Seller-categories-drop-down-label">filter by categories</label>
+        <select name="seller-categories-dropdown" id="seller-categories-dropdown">
+          <option value="children">children</option>
+          <option value="women">women</option>
+          <option value="men">men</option>
+        </select>
+      </div>
+      <section id="seller-products-container">
+        <!-- add me by dom -->
+      </section>
+    </section>
+      
+  </div>
+  
+    <!-- Add product section -->
+  <section id="add-new-product-section">
+    <button class="add-product-seller-button"> Add Product</button>
+  </section>
+    <!-- End add product section -->
+    
   <script src="../js/logic.js"></script>
   <script src="../js/dom.js"></script>
 </body>
 
 </html>
+
