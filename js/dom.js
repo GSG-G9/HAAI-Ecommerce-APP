@@ -97,3 +97,62 @@ const products = [
 		catogrey: "sports",
 	},
 ];
+
+const inputName = document.getElementById("p-name")
+const inputId = document.getElementById("p-id")
+const inputPrice = document.getElementById("p-price")
+const inputImg = document.getElementById("p-img")
+const inputCat = document.getElementById("p-cat")
+
+function creatProductDiv(product) {
+const productDiv = document.createElement("div")
+const img = document.createElement("img")
+const price = document.createElement("p")
+const name = document.createElement("p")
+const button = document.createElement("button")
+
+price.innerText = product.price
+img.src = product.imgSrc
+name.innerText = product.name
+button.innerText = "Edit"
+
+button.addEventListener("click",()=>{
+	inputName.value = product.name
+	inputId.value = product.id
+	inputPrice.value = product.price
+	inputImg.value = product.imgSrc
+	inputCat.value = product.catogrey
+
+})
+
+const submiteButton = document.getElementById("submit-edit")
+
+submiteButton.addEventListener("click",()=>{
+
+	const editProdut ={
+						name: inputName.value,
+						id: inputId.value,
+						price: inputPrice.value,
+						imgSrc: inputImg.value,
+						owner: "hassan",
+						catogrey: inputCat.value,
+					}
+
+				products =	editProduct(editProdut,products)
+				
+})
+
+
+productDiv.append(img,name,price,button)
+
+return productDiv
+}
+
+const productSeller=document.getElementById("seller-products-container")
+products.forEach(p => {
+	const div = creatProductDiv(p)
+	productSeller.appendChild(div)
+})
+
+
+

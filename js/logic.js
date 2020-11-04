@@ -20,9 +20,8 @@ function removeProduct(valueToRemove, products){
 
 // Add Products information
 
-function editProduct(edited, products) {
-	let newProducts = products.filter((item) => item.id !== edited.id);
-	return [edited, ...newProducts];
+function editProduct(product, products) {
+	return products.map(p=> p.id === product.id? product:p)
 }
 
 // Seller Filter Price

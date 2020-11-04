@@ -64,10 +64,10 @@ describe("Test filter category Product Function", () => {
 // Seller Edit Product Products
 describe("Test Edit Product Function", () => {
 	test("should Edit itmes ", () => {
-		const products = [{ id: 1 , price :25 , catogrey :"men"}, { id: 2  , price :55, catogrey : "women" }, { id: 3 , price :105 ,catogrey : "children" }];
-		const item = { id: 1 , catogrey :"women"}
+		const products = [{ id: 1 , price :25 , catogrey :"men"}, { id: 2  , price :55, catogrey : "women" }];
+		const item = { id: 1 , price :25 , catogrey :"women" }
 		const actual = editProduct(item, products);
-		const expected = [{ id: 1 , price :25 , catogrey :"women"}, { id: 2  , price :55, catogrey : "women" }, { id: 3 , price :105 ,catogrey : "children" }]
+		const expected = [{ id: 1 , price :25 , catogrey :"women"}, { id: 2  , price :55, catogrey : "women" }]
 		expect(actual).toEqual(expected);
 	});
 
