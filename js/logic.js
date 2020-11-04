@@ -21,8 +21,6 @@ function filterProductsByPrice(products, price){
 	return  products.filter(item => item.price === price)
 }
 
-
-
 // Seller - Remove a product
 
 function removeProduct(valueToRemove, products){
@@ -30,5 +28,5 @@ function removeProduct(valueToRemove, products){
 }
 
 //Export functions
-module.exports = { addProduct, totalPrice, deleteProduct, filterProductsByCategory, filterProductsByPrice, removeProduct};
+// module.exports = { addProduct, totalPrice, deleteProduct, filterProductsByCategory, filterProductsByPrice, removeProduct};
 
