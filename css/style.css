@@ -123,6 +123,79 @@ html{
   background-color: #28a745;
   border-color: #28a745;
 }
+img{
+  display: block;
+  width: 70%;
+  margin:auto
+
+
+}
+#total-price{
+  font-size: 25px;
+  text-align: center;
+  color: red;
+}
+#buyer-container{
+  display: flex;
+  justify-content: center;
+  position: relative;
+  
+}
+#search-and-filters-and-toggle-container{
+  position: absolute;
+  background-color: grey;
+  width: 100%;
+  height: 70px;
+  line-height: 70px;
+  top: 50px; 
+}
+#buyer-products-section{
+  width: 70%;
+  display: flex;
+  flex-wrap: wrap;
+  background-color: grey;
+
+}
+#cart-section{
+  width: 30%;  
+  display: flex;
+  flex-direction: column;
+  height: auto;
+
+}
+.cart-product-div{
+  width: 70%;
+  background-color: rgb(240, 235, 235);
+  margin: 30px auto;
+  text-align: center;
+
+}
+#products-container{
+  /* background-color: indianred; */
+  display: flex;
+  flex-wrap: wrap;
+  width: 70%;
+  position: absolute;
+  top:110px;
+  justify-content: center;
+  background-color: rgb(231, 220, 220)
+  
+
+
+}
+.single-product-div{
+  width: 15%;
+  background-color: rgb(240, 235, 235);
+  margin: 30px 30px;
+  text-align: center;
+  padding-top: 20px;
+  border-radius: 3px;
+  
+
+}
+button{
+  margin-bottom: 20px;
+}
 
 
 
